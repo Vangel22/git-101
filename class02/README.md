@@ -11,9 +11,36 @@
 
 - Ги комбинира промените од една гранка во друга. На пример, кога ќе завршите работа на feature гранка, ја спојувате со main гранката. Оваа команда создава нов commit со обединување на промените.
 
+- Прв commit - commit 1 - feature/jsfile
+- Втор commit - commit 2 - feature/jsfile
+- Push - commit 1 и commit 2 се прикачени на Github на гранката feature/jsfile
+- git checkout main - се префрламе на нашата главна гранка
+- git fetch origin feature/jsfile - земи ги сите промени направени на feature/jsfile - ама не ги спојувај
+- git merge feature/jsfile -> на моменталната гранка се додадени commit 1 и commit 2 од feature/jsfile гранката.
+- git push - ги прикачува промените на main
+
+- Историја:
+- main - commit 0
+- main / feature/jsfile - commit 1
+- main / feature/jsfile - commit 2
+
 ### Rebase
 
 - Ги зема сите промени од една гранка и ги додава на друга гранка, со што историјата изгледа почиста т.е линеарна. Често се користи за појасна историја на commits, но може да биде поосетлива на конфликти.
+
+- Прв commit - commit 1 - feature/jsfile - 12:00
+- Втор commit - commit 2 - feature/jsfile - 12:30
+
+- commit на main - commit on main - main - 12:15
+- git push - бил направен на main додека ние паралелно сме работеле на feature/jsfile - 12:15
+
+- git rebase feature/jsfile - кога ние сме на main, се случува следното:
+
+1. Прв commit - 12:00
+2. commit на main - 12:15
+3. Втор commit - 12:30
+
+- Вистински проект форма на гранка: ftr/1288-CustomButton
 
 ### Diff
 
